@@ -1,0 +1,161 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas: #f9f8f5;
+  --surface: #f1ede6;
+  --subtle: #e8e4da;
+  --line: #dfd9ce;
+  --ink: #181614;
+  --stone: #6d6860;
+  --accent: #855841;
+  --accent-fg: #f9f8f5;
+  --live: #10b981;
+  --shade: #181614;
+  --paper: #f9f8f5;
+  --shadow-soft: 0 4px 20px rgba(24, 22, 20, 0.03);
+  --shadow-border:
+    0px 0px 0px 1px rgba(24, 22, 20, 0.06), 0px 1px 2px -1px rgba(24, 22, 20, 0.06),
+    0px 2px 4px 0px rgba(24, 22, 20, 0.04);
+  color-scheme: light;
+}
+
+html.dark {
+  --canvas: #110f0d;
+  --surface: #1a1714;
+  --subtle: #24201c;
+  --line: #3a342e;
+  --ink: #f3eee7;
+  --stone: #9c948a;
+  --accent: #c4896a;
+  --accent-fg: #1a120e;
+  --live: #34d399;
+  --shade: #0c0b0a;
+  --paper: #f3eee7;
+  --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.38);
+  --shadow-border: 0 0 0 1px rgba(243, 238, 231, 0.08);
+  color-scheme: dark;
+}
+
+@theme {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-stone: var(--stone);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-live: var(--live);
+  --color-shade: var(--shade);
+  --color-paper: var(--paper);
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman",
+    serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+    monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+  --radius-3xl: 32px;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--canvas);
+    color: var(--ink);
+  }
+
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  html.theme-ready,
+  html.theme-ready body {
+    transition:
+      background-color 220ms var(--ease-out-soft),
+      color 220ms var(--ease-out-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.theme-ready,
+    html.theme-ready body {
+      transition: none;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  @media (pointer: fine) {
+    html.has-custom-cursor,
+    html.has-custom-cursor body {
+      cursor: none;
+    }
+
+    html.has-custom-cursor a,
+    html.has-custom-cursor button,
+    html.has-custom-cursor [role="button"],
+    html.has-custom-cursor input,
+    html.has-custom-cursor textarea,
+    html.has-custom-cursor select,
+    html.has-custom-cursor label {
+      cursor: none;
+    }
+
+    html.has-custom-cursor .cursor-native,
+    html.has-custom-cursor .cursor-native * {
+      cursor: auto;
+    }
+  }
+}
+
+@layer components {
+  .media-frame {
+    outline: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+    outline-offset: -1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
