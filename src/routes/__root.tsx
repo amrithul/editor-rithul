@@ -10,22 +10,23 @@ import { ThemeSync } from "@/components/theme-toggle";
 import { themeBootScript } from "@/lib/theme";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Rithul — Cut & Color";
-
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: APP_NAME },
+      { title: "Rithul — Video Editor in Kerala | Cut & Color" },
       {
         name: "description",
         content:
-          "Every frame has a story. I make it worth watching. Cinematic, social, and promotional films by Rithul — Kerala.",
+          "Rithul is a freelance video editor in Kerala. He cuts cinematic stories, music videos, and promotional films in DaVinci Resolve.",
       },
+      { name: "author", content: "Rithul" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "theme-color", content: "#F9F8F5" },
     ],
     links: [
+      { rel: "canonical", href: "https://rithul.mp4/" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },

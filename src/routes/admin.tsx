@@ -15,7 +15,15 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 import type { ProjectCategory } from "@/data/portfolio";
 
-export const Route = createFileRoute("/admin")({ component: AdminPage });
+export const Route = createFileRoute("/admin")({
+  head: () => ({
+    meta: [
+      { title: "Desk — Rithul" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
+  component: AdminPage,
+});
 
 function AdminPage() {
   const router = useRouter();

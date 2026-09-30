@@ -44,8 +44,9 @@ export function AboutSection() {
               {editor.bio}
             </p>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-stone">
-              Based in {editor.cities[0].name}, India. DaVinci Resolve is the
-              primary software — cut, color, and finish in one chair.{" "}
+              Rithul works from {editor.cities[0].name}, India. DaVinci
+              Resolve is the primary software — cut, color, and finish in one
+              chair.{" "}
               {editor.availabilityLong}
             </p>
           </Reveal>

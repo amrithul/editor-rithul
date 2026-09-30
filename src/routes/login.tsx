@@ -3,7 +3,15 @@ import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import { AdminLoginForm } from "@/components/admin-login-form";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-export const Route = createFileRoute("/login")({ component: Login });
+export const Route = createFileRoute("/login")({
+  head: () => ({
+    meta: [
+      { title: "Sign in — Rithul" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
+  component: Login,
+});
 
 function Login() {
   const router = useRouter();

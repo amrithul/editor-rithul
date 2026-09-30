@@ -8,8 +8,24 @@ import { ReelHorizontalScrub } from "@/components/reel-horizontal-scrub";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { useCatalog } from "@/components/catalog-provider";
+import { HOME_DESCRIPTION, HOME_TITLE, personJsonLd, SITE_URL } from "@/lib/seo";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: HOME_TITLE },
+      { name: "description", content: HOME_DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(personJsonLd),
+      },
+    ],
+  }),
+  component: Home,
+});
 
 function Home() {
   const { reels } = useCatalog();

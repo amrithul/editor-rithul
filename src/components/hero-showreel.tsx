@@ -95,8 +95,9 @@ export function HeroShowreel() {
           <em className="italic">I Make It Worth Watching.</em>
         </h1>
         <p className="mt-6 max-w-xl text-pretty text-base text-stone sm:text-lg">
-          Cinematic stories, fast-paced social, and promotional films — cut
-          in DaVinci Resolve.
+          Rithul is a freelance video editor in Kerala. Cinematic stories,
+          fast-paced social, and promotional films — cut and graded in
+          DaVinci Resolve.
         </p>
 
         <div
@@ -113,7 +114,7 @@ export function HeroShowreel() {
         >
           <img
             src={clip.poster}
-            alt=""
+            alt={`${clip.title} — showreel still, edited by Rithul`}
             className="absolute inset-0 size-full object-cover"
             fetchPriority="high"
           />

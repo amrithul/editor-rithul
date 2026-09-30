@@ -69,7 +69,7 @@ export function SiteFooter() {
           <a
             href={editor.instagram}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="text-stone hover:text-ink"
           >
             {editor.instagramHandle}
